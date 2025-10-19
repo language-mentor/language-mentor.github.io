@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking: Accommodation - Band 5.0-6.5 Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2d3436;
+            background: linear-gradient(135deg, #f5f3ff 0%, #ffeaa7 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header-lesson {
+            background: None;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2d3436;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #636e72;
+            font-size: 1.1em;
+        }
+        
+        .target-band {
+            display: block;
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 15px auto 0;
+            box-shadow: 0 3px 10px rgba(253, 121, 168, 0.3);
+            width: fit-content;
+        }
+        
+        .section-lesson {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        h2 {
+            color: #2d3436;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #a29bfe;
+            font-size: 1.6em;
+        }
+        
+        h3 {
+            color: #2d3436;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .vocab-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border-left: 4px solid #ada7d6;
+        }
+        
+        .vocab-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.15);
+            background: #fbfbfd;
+        }
+        
+        .vocab-term {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+        
+        .ipa {
+            color: #e17055;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+            background: #fff5f5;
+            padding: 2px 8px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .vocab-translation {
+            font-style: italic;
+            color: #636e72;
+            margin-bottom: 10px;
+        }
+        
+        .vocab-example {
+            color: #2d3436;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .audio-btn {
+            background: None;
+            color: rgb(96, 206, 230);
+            border: #e9bcf7;
+            padding: 6px 14px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-left: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(108, 92, 231, 0.2);
+        }
+        
+        .audio-btn:hover {
+            background: #5f3dc4;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(108, 92, 231, 0.3);
+        }
+        
+        .audio-btn.playing {
+            background: #fd79a8;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .question-box {
+            background: #fafbfc;
+            border-left: 4px solid #afaada;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .answer {
+            color: #495057;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        
+        .band-level {
+            display: inline-block;
+            background: None;
+            color: rgb(168, 108, 237);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(108, 92, 231, 0.2);
+        }
+        
+        .tips-box {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+        
+        .tips-box ul {
+            list-style: none;
+            padding-left: 500;
+        }
+        
+        .tips-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .tips-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .practice-exercise {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .exercise-title {
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .simple-phrase {
+            background: #fff7f4;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 3px solid #f2a4bf;
+        }
+        
+        .phrase-title {
+            font-weight: bold;
+            color: #d63031;
+            margin-bottom: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+            background: white;
+        }
+        
+        tr:hover td {
+            background: #f8f9fa;
+        }
+        
+        .cue-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff0f0 100%);
+            border: 2px dashed #fd79a8;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .timer {
+            background: #fd79a8;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-left: 10px;
+            box-shadow: 0 2px 5px rgba(253, 121, 168, 0.3);
+        }
+        
+        .progress-indicator {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(253, 203, 110, 0.2);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fd79a8 0%, #6c5ce7 100%);
+            width: 30%;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .speech-controls {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            margin-left: 10px;
+        }
+        
+        .speed-control {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85em;
+        }
+        
+        .speed-control select {
+            padding: 3px 8px;
+            border-radius: 5px;
+            border: 1px solid #a29bfe;
+            background: white;
+            color: #2d3436;
+            cursor: pointer;
+        }
+        
+        .speed-control select:focus {
+            outline: none;
+            border-color: #a29bfe;
+            box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            .section-lesson {
+                padding: 20px;
+            }
+            
+            .vocabulary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Flashcard Styles */
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+        
+        .flashcard-container {
+            perspective: 1000px;
+            height: 280px;
+        }
+        
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+        
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .flashcard-front {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #6c5ce7;
+        }
+        
+        .flashcard-back {
+            background: white;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+        
+        .flip-hint {
+            position: absolute;
+            bottom: 15px;
+            right: 8px;
+            background:white;
+            color: rgb(213, 126, 247);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            opacity: 0.8;
+        }
+        
+        .flashcard-front .flip-hint {
+            background: #f5f5f7;
+        }
+        
+        .flashcard-back .flip-hint {
+            background: white;
+            color: #6c5ce7;
+        }
+        
+        .vocab-term-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .vocab-term {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2d3436;
+        }
+        
+        .ipa {
+            color: #e17055;
+            font-size: 1.1em;
+            font-family: 'Lucida Sans Unicode', 'Arial Unicode MS', Arial;
+            background: #fff5f5;
+            padding: 3px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        
+        .vocab-translation {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .vocab-translation-subtitle {
+            font-size: 1em;
+            margin-top: 10px;
+            opacity: 0.9;
+        }
+        
+        .vocab-examples {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .example-item {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-left: 3px solid #a29bfe;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+
+        
+        .audio-btn:hover {
+            background: #5f3dc4;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(108, 92, 231, 0.3);
+        }
+        
+        .audio-btn.playing {
+            background: #fd79a8;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header-lesson>
+            <h1>IELTS Speaking: Accommodation</h1>
+            <p class="subtitle">Step-by-Step Guide to Improve Your Score</p>
+            <span class="target-band">Current: Band 4.5 → Target: Band 5.0-6.5</span>
+            <p style="color: #2d3436; margin-top: 10px;">Focus on: Clear pronunciation, basic vocabulary, simple but complete sentences</p>
+        </header-lesson>
+
+
+        <div class="section-lesson">
+            <h2>📚 Essential Vocabulary (with Audio)</h2>
+            
+            <div style="background: linear-gradient(135deg, #f5f3ff 0%, #e6e2ff 100%); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 3px solid #a29bfe;">
+                Click the 🔊 button to hear the pronunciation.
+            </div>
+            
+            <h3>Types of Accommodation - Basic Level</h3>
+            <div class="vocabulary-grid">
+                <!-- Apartment Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">Apartment</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('apartment', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/əˈpɑːrtmənt/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('I live in a small apartment', 'en-US', 0.7)">🔊</button>
+                                    "I live in a small apartment."
+                                </div>
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('I live in a two-bedroom apartment with my family', 'en-US', 0.7)">🔊</button>
+                                    "I live in a two-bedroom apartment with my family."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Căn hộ</div>
+                                <div class="vocab-translation-subtitle">Apartment</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- House Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">House</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('house', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/haʊs/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('My house is big', 'en-US', 0.7)">🔊</button>
+                                    "My house is big."
+                                </div>
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('My house has three bedrooms and a small garden', 'en-US', 0.7)">🔊</button>
+                                    "My house has three bedrooms and a small garden."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Nhà</div>
+                                <div class="vocab-translation-subtitle">House</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bedroom Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">Bedroom</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('bedroom', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/ˈbedruːm/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('My bedroom is comfortable', 'en-US', 0.7)">🔊</button>
+                                    "My bedroom is comfortable."
+                                </div>
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('My bedroom is where I relax and study', 'en-US', 0.7)">🔊</button>
+                                    "My bedroom is where I relax and study."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Phòng ngủ</div>
+                                <div class="vocab-translation-subtitle">Bedroom</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Living Room Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">Living room</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('living room', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/ˈlɪvɪŋ ruːm/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('The living room is nice', 'en-US', 0.7)">🔊</button>
+                                    "The living room is nice."
+                                </div>
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('My family usually watches TV in the living room', 'en-US', 0.7)">🔊</button>
+                                    "My family usually watches TV in the living room."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Phòng khách</div>
+                                <div class="vocab-translation-subtitle">Living room</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kitchen Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">Kitchen</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('kitchen', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/ˈkɪtʃən/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('The kitchen is small', 'en-US', 0.7)">🔊</button>
+                                    "The kitchen is small."
+                                </div>
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('Our kitchen is small but has everything we need', 'en-US', 0.7)">🔊</button>
+                                    "Our kitchen is small but has everything we need."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Nhà bếp</div>
+                                <div class="vocab-translation-subtitle">Kitchen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Balcony Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">Balcony</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('balcony', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/ˈbælkəni/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('I have a balcony', 'en-US', 0.7)">🔊</button>
+                                    "I have a balcony."
+                                </div>
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('I like to drink coffee on my balcony in the morning', 'en-US', 0.7)">🔊</button>
+                                    "I like to drink coffee on my balcony in the morning."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Ban công</div>
+                                <div class="vocab-translation-subtitle">Balcony</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dormitory Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">Dormitory</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('dormitory', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/ˈdɔːrmətɔːri/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('I stayed in a university dormitory during my first year', 'en-US', 0.7)">🔊</button>
+                                    "I stayed in a university dormitory during my first year."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Ký túc xá</div>
+                                <div class="vocab-translation-subtitle">Dormitory</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Villa Flashcard -->
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="flipCard(this)">
+                        <div class="flashcard-front">
+                            <span class="flip-hint">Click to flip</span>
+                            <div class="vocab-term-header">
+                                <span class="vocab-term">Villa</span>
+                                <button class="audio-btn" onclick="event.stopPropagation(); speakWord('villa', 'en-US')">🔊</button>
+                            </div>
+                            <div class="ipa">/ˈvɪlə/</div>
+                            <div class="vocab-examples">
+                                <div class="example-item">
+                                    <button class="audio-btn" onclick="event.stopPropagation(); speakWord('They rented a seaside villa for their vacation', 'en-US', 0.7)">🔊</button>
+                                    "They rented a seaside villa for their vacation."
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="flip-hint">Click to flip</span>
+                            <div>
+                                <div class="vocab-translation">Biệt thự</div>
+                                <div class="vocab-translation-subtitle">Villa</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Describing Words - Build Your Vocabulary</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>IPA & Audio</th>
+                        <th>Vietnamese</th>
+                        <th>Example for Band 5-6</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td width="20%"><strong>Comfortable</strong></td>
+                        <td>
+                            /ˈkʌmftəbl/
+                            <button class="audio-btn" onclick="speakWord('comfortable', 'en-US')">🔊</button>
+                        </td>
+                        <td>Thoải mái</td>
+                        <td>
+                            "My home is small but comfortable."
+                            <button class="audio-btn" onclick="speakWord('My home is small but comfortable', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spacious</strong></td>
+                        <td>
+                            /ˈspeɪʃəs/
+                            <button class="audio-btn" onclick="speakWord('spacious', 'en-US')">🔊</button>
+                        </td>
+                        <td>Rộng rãi</td>
+                        <td>
+                            "The living room is quite spacious."
+                            <button class="audio-btn" onclick="speakWord('The living room is quite spacious', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cozy</strong></td>
+                        <td>
+                            /ˈkoʊzi/
+                            <button class="audio-btn" onclick="speakWord('cozy', 'en-US')">🔊</button>
+                        </td>
+                        <td>Ấm cúng</td>
+                        <td>
+                            "My bedroom is small but cozy."
+                            <button class="audio-btn" onclick="speakWord('My bedroom is small but cozy', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Modern</strong></td>
+                        <td>
+                            /ˈmɑːdərn/
+                            <button class="audio-btn" onclick="speakWord('modern', 'en-US')">🔊</button>
+                        </td>
+                        <td>Hiện đại</td>
+                        <td>
+                            "We live in a modern apartment building."
+                            <button class="audio-btn" onclick="speakWord('We live in a modern apartment building', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Traditional</strong></td>
+                        <td>
+                            /trəˈdɪʃənl/
+                            <button class="audio-btn" onclick="speakWord('traditional', 'en-US')">🔊</button>
+                        </td>
+                        <td>Truyền thống</td>
+                        <td>
+                            "My grandparents live in a traditional house."
+                            <button class="audio-btn" onclick="speakWord('My grandparents live in a traditional house', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Convenient</strong></td>
+                        <td>
+                            /kənˈviːniənt/
+                            <button class="audio-btn" onclick="speakWord('convenient', 'en-US')">🔊</button>
+                        </td>
+                        <td>Thuận tiện</td>
+                        <td>
+                            "The location is very convenient for shopping."
+                            <button class="audio-btn" onclick="speakWord('The location is very convenient for shopping', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Quiet</strong></td>
+                        <td>
+                            /ˈkwaɪət/
+                            <button class="audio-btn" onclick="speakWord('quiet', 'en-US')">🔊</button>
+                        </td>
+                        <td>Yên tĩnh</td>
+                        <td>
+                            "I like my neighborhood because it's quiet."
+                            <button class="audio-btn" onclick="speakWord('I like my neighborhood because it is quiet', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bright</strong></td>
+                        <td>
+                            /braɪt/
+                            <button class="audio-btn" onclick="speakWord('bright', 'en-US')">🔊</button>
+                        </td>
+                        <td>Sáng sủa</td>
+                        <td>
+                            "My room has big windows, so it's very bright."
+                            <button class="audio-btn" onclick="speakWord('My room has big windows, so it is very bright', 'en-US', 0.7)">🔊</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-lesson">
+            <h2>🎯 Part 1: Common Questions & Band 5.0-6.5 Answers</h2>
+            
+            <div class="question-box">
+                <div class="question">
+                    1. What is your favourite room?
+                    <button class="audio-btn" onclick="speakWord('What is your favourite room?', 'en-GB', 0.8)">🔊 Question</button>
+                </div>
+                <div class="answer">
+                    <span class="band-level">Band 5.0 Answer</span>
+                    <button class="audio-btn" onclick="speakWord('My favourite room is my bedroom. I like it because it is quiet and I can relax there. I have my computer and books in my bedroom. I spend a lot of time there.', 'en-US', 0.7)">🔊 Play</button><br>
+                    "My favourite room is my bedroom. I like it because it's quiet and I can relax there. I have my computer and books in my bedroom. I spend a lot of time there."<br><br>
+                    
+                    <span class="band-level">Band 6.0 Answer</span>
+                    <button class="audio-btn" onclick="speakWord('I think my favourite room is definitely my bedroom. The main reason is that it is my personal space where I can relax after a long day. I have decorated it with some posters and photos, which makes it feel comfortable. Also, I have a desk there where I can study without being disturbed.', 'en-US', 0.7)">🔊 Play</button><br>
+                    "I think my favourite room is definitely my bedroom. The main reason is that it's my personal space where I can relax after a long day. I've decorated it with some posters and photos, which makes it feel comfortable. Also, I have a desk there where I can study without being disturbed."<br><br>
+                    
+                    <strong>Key phrases to use:</strong>
+                    • "I think..." / "I believe..."
+                    • "The main reason is..."
+                    • "Also..." / "Besides..."
+                </div>
+            </div>
+            
+            <div class="question-box">
+                <div class="question">
+                    2. Do you live in a house or a flat?
+                    <button class="audio-btn" onclick="speakWord('Do you live in a house or a flat?', 'en-GB', 0.8)">🔊 Question</button>
+                </div>
+                <div class="answer">
+                    <span class="band-level">Band 5.0 Answer</span>
+                    <button class="audio-btn" onclick="speakWord('I live in a flat. It is on the third floor. We have two bedrooms, a living room and a kitchen. It is not very big but it is enough for my family.', 'en-US', 0.7)">🔊 Play</button><br>
+                    "I live in a flat. It's on the third floor. We have two bedrooms, a living room and a kitchen. It's not very big but it's enough for my family."<br><br>
+                    
+                    <span class="band-level">Band 6.0 Answer</span>
+                    <button class="audio-btn" onclick="speakWord('Actually, I live in a flat in an apartment building. It is on the third floor, which is nice because it is not too high but we still get good sunlight. Although it is not very spacious, it has two bedrooms and a comfortable living room, which is sufficient for my family of three.', 'en-US', 0.7)">🔊 Play</button><br>
+                    "Actually, I live in a flat in an apartment building. It's on the third floor, which is nice because it's not too high but we still get good sunlight. Although it's not very spacious, it has two bedrooms and a comfortable living room, which is sufficient for my family of three."<br><br>
+                    
+                    <strong>Useful connectors:</strong>
+                    • "Actually..." (to start)
+                    • "Although..." (for contrast)
+                    • "...which is..." (to add information)
+                </div>
+            </div>
+            
+            <div class="question-box">
+                <div class="question">
+                    3. Who do you live with?
+                    <button class="audio-btn" onclick="speakWord('Who do you live with?', 'en-GB', 0.8)">🔊 Question</button>
+                </div>
+                <div class="answer">
+                    <span class="band-level">Band 5.0 Answer</span>
+                    <button class="audio-btn" onclick="speakWord('I live with my parents and my younger sister. We have lived together for many years. Sometimes it is noisy but I like living with my family.', 'en-US', 0.7)">🔊 Play</button><br>
+                    "I live with my parents and my younger sister. We have lived together for many years. Sometimes it's noisy but I like living with my family."<br><br>
+                    
+                    <span class="band-level">Band 6.0 Answer</span>
+                    <button class="audio-btn" onclick="speakWord('Currently, I am living with my parents and my younger sister. We have been living together in the same flat for about five years now. To be honest, sometimes I wish I had more privacy, but I enjoy the family atmosphere and it is nice to have someone to talk to when I come home.', 'en-US', 0.7)">🔊 Play</button><br>
+                    "Currently, I'm living with my parents and my younger sister. We've been living together in the same flat for about five years now. To be honest, sometimes I wish I had more privacy, but I enjoy the family atmosphere and it's nice to have someone to talk to when I come home."<br><br>
+                    
+                    <strong>Time expressions:</strong>
+                    • "Currently..." / "At the moment..."
+                    • "We've been living... for..."
+                    • "To be honest..."
+                </div>
+            </div>
+        </div>
+
+        <div class="section-lesson">
+            <h2>💬 Simple Phrases for Band 5.0-6.0</h2>
+            
+            <div class="simple-phrase">
+                <div class="phrase-title">Starting Your Answer</div>
+                <button class="audio-btn" onclick="speakWord('Well, actually... To be honest... I think... In my opinion... Let me think... I would say...', 'en-US', 0.7)">🔊 Play All</button>
+                <ul>
+                    <li>"Well, actually..."</li>
+                    <li>"To be honest..."</li>
+                    <li>"I think..."</li>
+                    <li>"In my opinion..."</li>
+                    <li>"Let me think... I would say..."</li>
+                </ul>
+            </div>
+            
+            <div class="simple-phrase">
+                <div class="phrase-title">Adding Information</div>
+                <button class="audio-btn" onclick="speakWord('Also... Besides that... Another thing is... What is more... In addition...', 'en-US', 0.7)">🔊 Play All</button>
+                <ul>
+                    <li>"Also..."</li>
+                    <li>"Besides that..."</li>
+                    <li>"Another thing is..."</li>
+                    <li>"What's more..."</li>
+                    <li>"In addition..."</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-lesson">
+            <h2>🎯 Part 2: Cue Card Practice (Band 5.0-6.0)</h2>
+            
+            <div class="cue-card">
+                <h3>Describe the house or apartment where you live</h3>
+                <p>You should say:</p>
+                <ul style="margin-left: 30px;">
+                    <li>What type of accommodation it is</li>
+                    <li>Who you live with</li>
+                    <li>What your favorite room is</li>
+                    <li>And explain what you like or dislike about it</li>
+                </ul>
+                <br>
+                <span class="timer">Preparation: 1 minute</span>
+                <span class="timer">Speaking: 1-2 minutes</span>
+            </div>
+
+            <div class="practice-exercise">
+                <div class="exercise-title">
+                    Sample Answer (Band 5.0-6.0):
+                    <button class="audio-btn" onclick="playFullAnswer()">🔊 Play Full Answer</button>
+                </div>
+                
+                <p id="answer-text">
+                    <strong>Complete answer:</strong><br>
+                    "I'd like to talk about my current home, which is an apartment in the city center. I live in a two-bedroom apartment on the fifth floor of a modern building. It's not very large, about 70 square meters, but it's comfortable for our family. The building has an elevator and a small parking area.
+                    
+                    I share this apartment with my parents and my younger brother. We've been living here together for about four years. Sometimes it feels a bit crowded, especially in the morning when everyone is getting ready, but generally we manage well.
+                    
+                    My favorite room is definitely my bedroom, even though I share it with my brother. We have our own desks and I've decorated my side with some posters. It's the place where I can study and relax.
+                    
+                    What I really like about our apartment is the location - it's very convenient for shops and public transport. Also, we have nice neighbors who are friendly and helpful. However, one thing I don't like is that it can be quite noisy because we're near a main road. Sometimes it's hard to concentrate when studying."
+                </p>
+            </div>
+        </div>
+
+        <div class="section-lesson" style="text-align: center; background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); color: white; box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);">
+            <h2 style="color: white; border: none;">Keep Practicing!</h2>
+            <p style="font-size: 1.1em; margin-top: 20px;">Remember: Small improvements every day lead to big results!</p>
+            <p style="margin-top: 15px;">Practice 15-20 minutes daily for best results</p>
+        </div>
+    </div>
+
+    <script>
+        // Store speech settings for each word
+        const speechSettings = {};
+        
+        // Main function to speak text using Chrome's Web Speech API
+        function speakWord(text, lang = 'en-US', rate = 0.75) {
+            // Check if browser supports speech synthesis
+            if (!('speechSynthesis' in window)) {
+                alert('Your browser does not support text-to-speech. Please use Chrome, Edge, or Safari.');
+                return;
+            }
+            
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+            
+            // Create new utterance
+            const utterance = new SpeechSynthesisUtterance(text);
+            
+            // Set properties
+            utterance.lang = lang;
+            utterance.rate = speechSettings[text] || rate; // Use stored rate or default
+            utterance.pitch = 1;
+            utterance.volume = 1;
+            
+            // Get available voices
+            const voices = window.speechSynthesis.getVoices();
+            
+            // Try to find a voice that matches the language
+            const voice = voices.find(v => v.lang.startsWith(lang)) || voices[0];
+            if (voice) {
+                utterance.voice = voice;
+            }
+            
+            // Visual feedback - add playing class to button
+            const buttons = document.querySelectorAll('.audio-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent.includes('🔊')) {
+                    btn.classList.remove('playing');
+                }
+            });
+            
+            // Add playing class to current button
+            event.target.classList.add('playing');
+            
+            // Remove playing class when speech ends
+            utterance.onend = () => {
+                event.target.classList.remove('playing');
+            };
+            
+            // Speak the text
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // Update speed for specific word
+        function updateSpeed(word, speed) {
+            speechSettings[word] = parseFloat(speed);
+        }
+        
+        // Play full Part 2 answer with pauses
+        function playFullAnswer() {
+            if (!('speechSynthesis' in window)) {
+                alert('Your browser does not support text-to-speech. Please use Chrome, Edge, or Safari.');
+                return;
+            }
+            
+            // Cancel any ongoing speech
+            window.speechSynthesis.cancel();
+            
+            const fullText = document.getElementById('answer-text').textContent
+                .replace('Complete answer:', '')
+                .replace(/"/g, '');
+            
+            const utterance = new SpeechSynthesisUtterance(fullText);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.75; // Slower for learners
+            utterance.pitch = 1;
+            utterance.volume = 1;
+            
+            // Get voices and select appropriate one
+            const voices = window.speechSynthesis.getVoices();
+            const voice = voices.find(v => v.lang === 'en-US') || voices[0];
+            if (voice) {
+                utterance.voice = voice;
+            }
+            
+            // Visual feedback
+            event.target.classList.add('playing');
+            
+            utterance.onend = () => {
+                event.target.classList.remove('playing');
+            };
+            
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // Load voices when page loads
+        window.addEventListener('load', () => {
+            // Chrome loads voices asynchronously
+            if (window.speechSynthesis.onvoiceschanged !== undefined) {
+                window.speechSynthesis.onvoiceschanged = () => {
+                    const voices = window.speechSynthesis.getVoices();
+                    console.log(`${voices.length} voices loaded`);
+                };
+            }
+            
+            // Initial load of voices
+            window.speechSynthesis.getVoices();
+        });
+        
+        // Stop speech when page is unloaded
+        window.addEventListener('beforeunload', () => {
+            window.speechSynthesis.cancel();
+        });
+
+        // Flashcard flip function
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
