@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phuong Nguyen's Projects</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+    .navbar {
+      background-color: #8055a2 !important;
+      position: sticky; /* Or use position: fixed */
+      top: 0;
+      z-index: 1000; /* Ensures the navbar stays above other elements */
+    }
+    .btn-primary {
+      background-color: #8055a2 !important;
+      border-color: #8055a2 !important;
+    }
+    .btn-primary:hover {
+      background-color: #50498d !important;
+      border-color: #50498d !important;
+    }
+    .date {
+      color: #3a0664;
+    }
+    h1, h3 {
+      color: #8055a2;
+    }
+    .col-md-6 {
+        padding-right: 1.5rem; /* Increase the right padding of the first column */
+        padding-left: 1.5rem; /* Increase the left padding of the second column */
+    }
+    p {
+        text-align: justify;
+      }
+    li {
+        text-align: justify;
+      }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Phuong Nguyen</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="experience.html">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="education.html">Education</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <h1 class="text-center">Projects</h1>
+    <div class="row">
+
+      <div class="col-md-6 my-4">
+        <h3>Vietnamese Text Mining and NLP for Governance Research</h3>
+        <p class="date">August 2025 - Present</p>
+        <p>Project description: Extracting insights from large-scale Vietnamese text data (news articles and social media comments) for governance and anti-corruption discourse analysis, supporting evidence-based policy research.</p>
+        <p><strong>Role: </strong>NLP Research Assistant at VinUniversity</p>
+        <ul>
+          <li>Scraping, preprocessing, and visualizing Vietnamese text data from news websites</li>
+          <li>Implementing linguistic feature extraction tools analyzing news articles for statistical metrics (word/sentence/token counts, keyword frequencies) with automated CSV reporting</li>
+          <li>Building end-to-end sentiment analysis pipeline classifying public comments (positive/negative/neutral) to track sentiment trends across time and geographic regions</li>
+          <li>Developing a KWIC (Key Word In Context) concordance tool with customizable context windows, making corpus analysis accessible to non-technical Vietnamese researchers</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python, Bash script, Selenium</li>
+          <li>VnCoreNLP, Hugging Face, sentiment analysis, pseudo-labeling</li>
+          <li>Streamlit, KWIC concordance</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Interactive Webpages for English Learning</h3>
+        <p class="date">August 2024 - Present</p>
+        <p>Project description: Designing and developing interactive educational webpages with audio, quizzes, and games to enhance English language learning engagement and retention.</p>
+        <p><strong>Role: </strong>English Tutor at FUNiX</p>
+        <ul>
+          <li>Consulting with learners to analyze specific needs and identify learning gaps</li>
+          <li>Designing and developing interactive web-based learning materials tailored to individual student requirements</li>
+        </ul>
+        <p><strong>Sample work:</strong></p>
+        <ul>
+          <li><a href="sample-work/gamified-vocabulary-learning.html" target="_blank">Gamified Vocabulary Learning</a></li>
+          <li><a href="sample-work/speaking-guide.html" target="_blank">Speaking Guide</a></li>
+        </ul>
+        <p class="small text-muted"><em>Note: Sample pages use Web Speech API for text-to-speech functionality. For best audio experience, please use Chrome, Edge, or Safari web browser.</em></p>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>LLM and prompt engineering</li>
+          <li>Linux, Bash script, pdftoppm</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>RLHF/DPO Data Annotation for LLM Training</h3>
+        <p class="date">September 2024 - October 2025</p>
+        <p>Project description: Contributed to LLM improvement through Reinforcement Learning from Human Feedback (RLHF) and Direct Preference Optimization (DPO), creating high-quality prompts and evaluating model responses to enhance performance and reduce hallucinations.</p>
+        <p><strong>Role: </strong>Data Contributor at Outlier AI</p>
+        <ul>
+          <li>Engineered high-quality prompts with structured components (context, instruction, constraints)</li>
+          <li>Designed edge-case prompts targeting uncommon knowledge to identify hallucinations, provided corrective feedback for model improvement</li>
+          <li>Evaluated response pairs across multiple criteria including Accuracy, Instruction Following, Writing Quality, Safety, Localization, and Truthfulness</li>
+          <li>Ranked preferences of the responses on 5-point and 7-point Likert scales</li>
+          <li>Wrote detailed justifications explaining the reasoning behind ratings and preference rankings</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Prompt engineering</li>
+          <li>Response evaluation and justification</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Educational Chatbot Plug-in</h3>
+        <p class="date">May 2024 - July 2024</p>
+        <p>Project description: Developed an LLM-powered conversational AI assistant for an educational platform, enabling personalized learning support and automated student assistance.</p>
+        <p><strong>Role: </strong>AI Engineer at FPT Software</p>
+        <ul>
+          <li>Analyzed requirements and proposed potential approaches based on ideas provided by the presales team</li>
+          <li>Implemented the AI module and integrated it into the chatbot plug-in</li>
+          <li>Collaborated with front-end and back-end engineers to ensure an optimal user experience</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>LLM: Microsoft Azure OpenAI</li>
+          <li>Prompt engineering for GPT-4-Turbo and GPT-4o</li>
+          <li>Python</li>
+          <li>Google Custom Search Engine and API</li>
+          <li>Bing Custom Search Engine and API</li>
+          <li>Wikipedia API</li>
+          <li>wiki-graph</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Document Classification Chatbot</h3>
+        <p class="date">March 2024 - April 2024</p>
+        <p>Project description: Developed an intelligent chatbot to automatically classify application forms and provide interactive assistance for form completion.</p>
+        <p><strong>Role: </strong>AI Engineer at FPT Software</p>
+        <ul>
+          <li>Analyzed client requirements with cross-functional team to define chatbot capabilities</li>
+          <li>Designed AI components and implemented chatbot functionality alongside a software engineer</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python, FastAPI</li>
+          <li>HuggingFace, embedding models</li>
+          <li>Faiss, vector store, semantic search</li>
+          <li>LangChain, Ollama</li>
+          <li>Microsoft Azure</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Volunteer Work: Day of AI Curriculum</h3>
+        <p class="date">January 2024 - May 2024</p>
+        <p>Project description: Translated the "Day of AI" curriculum from English to Vietnamese, making AI education accessible to Vietnamese students. This project was initiated by FSchools.</p>
+        <p><strong>Role: </strong>Reviewer at FPT Software</p>
+        <ul>
+          <li>Established consistent review processes and formatting standards through collaboration with review team</li>
+          <li>Provided linguistic corrections and feedback for curriculum document translations</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>AI Research Platform</h3>
+        <p class="date">November 2023 - March 2024</p>
+        <p>Project description: Developed a comprehensive platform with auto-labeling capabilities, enabling users to train, test, and get reports of AI models through an intuitive interface. Supported multiple AI tasks including image classification, object detection/segmentation, video classification, and text classification.</p>
+        <p><strong>Role: </strong>AI Engineer at FPT Software</p>
+        <ul>
+          <li>Researched and selected public models and datasets from Hugging Face, Kaggle, and official repositories for image classification task</li>
+          <li>Implemented efficient data download scripts and data loaders</li>
+          <li>Implemented model wrappers supporting training, inference, and ONNX export for cross-platform deployment</li>
+          <li>Built data augmentation workflow to enhance model performance</li>
+        </ul>
+        <p><strong>Technical skills:</strong> 
+        <li>Python, Bash script, Pytest</li>
+        <li>Hugging Face, ResNet, Vision Transformers, Swin Transformers</li>
+        <li>Docker, Microsoft Azure, AWS EC2</li> </p>
+        <!-- Add image for NICT project -->
+        <div>
+          <a href="images/nict.jpg" target="_blank">
+            <!-- Display as a thumbnail -->
+            <img src="images/nict.jpg" alt="Members (not all) of the NICT project team at the QAI Sumup 2023 year-end party" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Multi-Service Transportation Platform</h3>
+        <p class="date">May 2023 - August 2023</p>
+        <p>Project description: Platform migration expanding from taxi-only to multi-service offering including car rides, bus rides, and food deals.</p>
+        <p><strong>Role: </strong>API Tester/QA Engineer at FPT Software</p>
+        <ul>
+          <li>Designed and executed test cases covering API functionality and edge cases</li>
+          <li>Implemented automated test scripts using JavaScript and Postman</li>
+          <li>Performed both manual and automated testing for payment service modules</li>
+          <li>Validated API endpoints and data integrity</li>
+        </ul>
+        <p><strong>Technical skills:</strong> Postman, JavaScript, OpenAPI, AWS</p>
+        <!-- Add images for CDG project -->
+        <div>
+          <a href="images/cdg-1.jpg" target="_blank">
+            <img src="images/cdg-1.jpg" alt="CDG team members on the 5th birthday of FSoft Quy Nhon" class="img-fluid" style="max-width: 100px; max-height: 60px; margin-right: 10px;">
+          </a>
+          <a href="images/cdg-2.jpg" target="_blank">
+            <img src="images/cdg-2.jpg" alt="CDG team members during a Yukata contest in a company's workshop" class="img-fluid" style="max-width: 100px; max-height: 57px; margin-right: 10px;">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>LLM RAG Chatbot</h3>
+        <p class="date">March 2023 - May 2023</p>
+        <p>Project description: Built and evaluated the performance of a RAG chatbot using an LLM to answer questions based on document files in PDF or DOC formats.</p>
+        <p><strong>Role: </strong>AI Engineer at FPT Software</p>
+        <ul>
+          <li>Developed the RAG chatbot architecture and implementation</li>
+          <li>Researched and selected metrics to evaluate chatbot performance</li>
+          <li>Researched and selected embedding models and vector stores</li>
+          <li>Researched and applied prompt engineering techniques to LightOn completion models</li>
+          <li>Collaborated with team members to compare and report on vector store performance: open-source self-hosted vector stores vs. third-party vector stores</li>
+          <li>Collaborated with a team member to compare and report on model performance: open-source self-hosted LLMs vs. API-based LLMs</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python</li>
+          <li>HuggingFace, embedding models</li>
+          <li>Faiss, Pinecone, vector stores, semantic search</li>
+          <li>LangChain, OpenAI API, LightOn.ai API</li>
+          <li>Prompt engineering</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Smart Factory</h3>
+        <p class="date">January 2023 - March 2023</p>
+        <p>Project description: Built models to inspect the quantity and quality of products in a factory, aiming to reduce human labor costs.</p>
+        <p><strong>Role: </strong>AI Engineer at FPT Software</p>
+        <ul>
+          <li>Collected data and trained object detection models using YOLOv7, then integrated them with akaInspection to check the number of products and product names in real-time taken photos</li>
+          <li>Exported models to ONNX and TensorRT for faster inference</li>
+          <li>Applied pseudo-labeling techniques to save time on data labeling</li>
+          <li>Visualized outputs for better understanding and analysis</li>
+          <li>Tested, evaluated, and improved model performance</li>
+          <li>Implemented MQTT clients (publisher and subscriber) for communication between:
+            <ul>
+              <li>AI services and edge device</li>
+              <li>AI services and back-end</li>
+            </ul> </li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python, OpenCV</li>
+          <li>YOLOv7</li>
+          <li>YoloLabel</li>
+          <li>Docker</li>
+          <li>MQTT Mosquitto broker, paho-mqtt</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Document Processing Platform</h3>
+        <p class="date">August 2022 - December 2022</p>
+        <p>Project description: Developed an intelligent document processing platform using OCR technology to extract and analyze text from various document formats.
+        </p>
+        <p><strong>Role: </strong>AI Engineer at FPT Software</p>
+        <ul>
+          <li>Collaborated with team members to develop detection and segmentation models for ID cards, receipts, and other types of documents</li>
+          <li>Built document classification models to categorize cards, receipts, resume, and other document types</li>
+          <li>Conducted error analysis and implemented post-processing techniques for form-extraction models</li>
+          <li>Tested and optimized information-extraction models to improve accuracy</li>
+          <li>Analyzed and assessed client requirements (as a pre-sales team member)</li>
+          <li>Researched solutions and created proposals tailored to client needs</li>
+          <li>Supported a translator and a tester with document translation tasks</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python, OpenCV</li>
+          <li>YOLOv5, Detectron2</li>
+          <li>HuggingFace, LayoutLMv3, pdfminer</li>
+          <li>PPOCRLabel, YoloLabel</li>
+          <li>TF-IDF, document summarization</li>
+          <li>Pytest, Optuna</li>
+          <li>AWS EC2</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Volunteer Work: Hackathon Mentorship</h3>
+        <p class="date">July 2022 - August 2022</p>
+        <p>Project description: Created a sample solution and documentation for Vietnamese-English translation task in an AI hackathon challenge to guide an entry-level AI engineer participating in the competition.
+        </p>
+        <p><strong>Role: </strong>Mentor at FPT Software</p>
+        <ul>
+          <li>Developed and documented two approaches (SMT and NMT) to solve menu text translation task</li>
+          <li>Conducted comparative analysis on SMT vs. NMT, demonstrating impact of data availability on model selection</li>
+          <li>Created comprehensive documentation with code samples, evaluation metrics, and implementation guidance</li>
+          <li>Published solution repository: <a href="https://github.com/AI-Camp-Batch-8/phuongntk8-challenge-1-translation" target="_blank">translation task</a></li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python, Bash script</li>
+          <li>Moses SMT, OpenNMT (PyTorch)</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Research Activity: Paper Review</h3>
+        <p class="date">May 2022 - July 2022</p>
+        <p>Project description: Reviewed a manuscript for the Journal of Chinese Writing Systems.
+        </p>
+        <p><strong>Role: </strong>Peer Reviewer</p>
+        <ul>
+          <li>Studied and critically reviewed a manuscript examining Vietnamese-Chinese linguistic relationships</li>
+          <li>Provided evaluation and recommendations that contributed to the publication decision</li>
+        </ul>
+        <!-- Add image for Manuscript Review -->
+        <div>
+          <a href="images/verified_peer_review.jpg" target="_blank">
+            <!-- Display as a thumbnail -->
+            <img src="images/verified_peer_review.jpg" alt="Verified peer review" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+          </a>
+        </div>
+        <br>
+        <a href="https://www.webofscience.com/wos/author/record/GLV-1763-2022" target="_blank" class="btn btn-primary">View verification of contribution</a>
+        
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Conference Proceeding: Language Modeling</h3>
+        <h5>Published in National Conference on Fundamental and Applied Information Technology Research</h5>
+        <p class="date">May 2021 - December 2021</p>
+        <p>Project description: Improved a machine translation system by leveraging domain-specific language models and customized configurations based on linguistic knowledge.</p>
+        <p><strong>Role: </strong>Undergraduate Research Fellow at University of Science</p>
+        <ul>
+          <li>Studied and implemented interpolation language models</li>
+          <li>Designed and conducted experiments</li>
+          <li>Compared the proposed machine translation system with Nôm Converter (www.chunom.org)</li>
+          <li>Wrote a manuscript and incorporated revisions based on peer review feedback</li>
+          <li>Created presentation slides and delivered a report at the conference</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python</li>
+          <li>Bash script</li>
+          <li>Linux, Moses SMT, KenLM, IRSTLM</li>
+        </ul>
+                <!-- Add image for Thesis Summary -->
+        <div>
+          <a href="sample-work/Thesis-Summary-Vietnamese-Writing-Systems.png" target="_blank">
+            <!-- Display as a thumbnail -->
+            <img src="sample-work/Thesis-Summary-Vietnamese-Writing-Systems.png" alt="Vietnamese Writing Systems" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+          </a>
+          <a href="sample-work/Thesis-Summary-Problem-inaccessible-property.png" target="_blank">
+            <!-- Display as a thumbnail -->
+            <img src="sample-work/Thesis-Summary-Problem-inaccessible-property.png" alt="Problem: inaccessible property" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+          </a>
+          <a href="sample-work/Thesis-Summary-Problem-barrier-to-research-studies.png" target="_blank">
+            <!-- Display as a thumbnail -->
+            <img src="sample-work/Thesis-Summary-Problem-barrier-to-research-studies.png" alt="Problem: barrier to research studies" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+          </a>
+          <a href="sample-work/Thesis-Summary-Objective.png" target="_blank">
+            <!-- Display as a thumbnail -->
+            <img src="sample-work/Thesis-Summary-Objective.png" alt="Objective" class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+          </a>
+        </div>
+        <br>
+        <a href="http://dx.doi.org/10.15625/vap.2021.0092" target="_blank" class="btn btn-primary">Read Proceeding</a>
+        <a href="sample-work/Thesis-Summary-Transliteration-Nom-QN.pdf" target="_blank" class="btn btn-primary">Read Thesis Summary</a>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Information Security Competition: HCMUS-CTF</h3>
+        <p class="date">September 2020</p>
+        <p>Project description: Organized a Capture The Flag competition for students to practice their information security skills.</p>
+        <p><strong>Role: </strong>Organizing Committee Member at University of Science</p>
+        <ul>
+          <li>Designed a challenge in the Miscellaneous category, combining Steganography and Cryptography techniques</li>
+          <li>Ensured unauthorized accounts were prevented from participating in the competition</li>
+        </ul>
+        <!-- Add images for HCMUS-CTF project -->
+        <div>
+          <a href="images/information_security_competition.jpg" target="_blank">
+            <img src="images/information_security_competition.jpg" alt="Group photo of participants and organizers at the HCMUS-CTF Information Security Competition." class="img-fluid" style="max-width: 100px; margin-right: 10px;">
+          </a>
+        </div>
+      </div>
+      
+      <div class="col-md-6 my-4">
+        <h3>Conference Proceeding: Neural Machine Translation</h3>
+        <h5>Published in National Conference on Fundamental and Applied Information Technology Research</h5>
+        <p class="date">February 2020 - October 2020</p>
+        <p>Project description: Compared the <em>Statistical Machine Translation 1 (SMT 1)</em> with Neural Machine Translation (NMT) approach for translation performance.</p>
+        <p><strong>Role: </strong>Undergraduate Research Fellow at University of Science</p>
+        <ul>
+          <li>Conducted SMT experiments to benchmark performance against the NMT approach</li>
+          <li>Collaborated on manuscript writing and conference presentation creation</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python, Bash script</li>
+          <li>Linux, Moses SMT</li>
+        </ul>
+        <a href="http://dx.doi.org/10.15625/vap.2020.00149" target="_blank" class="btn btn-primary">Read Proceeding</a>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Research Paper: Statistical Machine Translation 2</h3>
+        <h5>Published in International Journal of Advanced Computer Science and Applications (IJACSA)</h5>
+        <p class="date">January 2020 - February 2021</p>
+        <p>Project description: Enhanced the baseline <em>Statistical Machine Translation 1</em> by implementing improved preprocessing scripts and expanding the training dataset.</p>
+        <p><strong>Role: </strong>Undergraduate Research Fellow at University of Science</p>
+        <ul>
+          <li>Led cross-university collaboration: Contacted and coordinated with faculty members (professors and librarians) at the VNUHCM-USSH and VNUHCM-US</li>
+          <li>Recruited and managed data contributors: Identified and consulted with Sino-Nom students to assist with data entry, providing guidance on transcribing parallel text from historical books and images into digital format</li>
+          <li>Scraped monolingual data for training and evaluation</li>
+          <li>Conducted data preprocessing, training, tuning, and testing models</li>
+          <li>Designed and conducted experiments to evaluate system performance</li>
+          <li>Compared the proposed machine translation system with Nôm Converter (www.chunom.org)</li>
+          <li>Wrote a manuscript and incorporated revisions based on peer review feedback</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Python, Bash script</li>
+          <li>Linux, Moses SMT, Scrapy</li>
+        </ul>
+        <a href="http://dx.doi.org/10.14569/IJACSA.2021.0120205" target="_blank" class="btn btn-primary">Read Paper</a>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>OCR for Nôm Script</h3>
+        <p class="date">December 2019 - July 2021</p>
+        <p>Project description: Developed OCR tool for Vietnamese Nôm script (historical Chinese-based writing system), converting images of ancient texts into editable, searchable format for linguistic research and preservation.</p>
+        <p><strong>Role: </strong>Undergraduate Research Fellow at University of Science</p>
+        <ul>
+          <li>Evaluated OCR model outputs for linguistic accuracy and character recognition quality</li>
+          <li>Assisted data-labeling team with Nôm character identification and annotation</li>
+          <li>Performed quality assurance on labeled datasets</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Labelme (annotation tool)</li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 my-4">
+        <h3>Conference Proceeding: Statistical Machine Translation 1</h3>
+        <h5>Published in "Hội thảo 100 năm chữ Quốc ngữ" (Conference on 100 Years of Vietnamese National Script)</h5>
+        <p class="date">October 2019 - December 2019</p>
+        <p>Project description: Built a baseline machine translation system using Moses SMT.</p>
+        <p><strong>Role: </strong>Undergraduate Research Fellow at University of Science</p>
+        <ul>
+          <li>Collected parallel data for training and evaluation</li>
+          <li>Provided statistical summaries of collected data to support research findings</li>
+          <li>Performed error analysis and annotated model outputs to identify improvement areas</li>
+        </ul>
+        <p><strong>Technical skills:</strong></p>
+        <ul>
+          <li>Linux</li>
+          <li>Moses SMT</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

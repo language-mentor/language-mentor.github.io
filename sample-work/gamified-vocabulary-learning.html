@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Vocabulary Adventure - The Lion and the Rabbit</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .game-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .game-title {
+            font-size: 32px;
+            color: #5a67d8;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-label {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        .score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a67d8;
+        }
+
+        .game-modes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .mode-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .mode-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .mode-btn.active {
+            background: #5a67d8;
+            color: white;
+        }
+
+        .game-area {
+            min-height: 400px;
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+        }
+
+        /* Flashcard Styles */
+        .flashcard-container {
+            display: none;
+            text-align: center;
+        }
+
+        .flashcard {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            left: 0;
+            padding: 40px;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+        }
+
+        .word-display {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .word-pronunciation {
+            font-size: 18px;
+            color: #718096;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .word-image {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .definition {
+            font-size: 20px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .example {
+            font-size: 16px;
+            color: #718096;
+            font-style: italic;
+            padding: 10px;
+            background: #edf2f7;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .audio-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .audio-btn:hover {
+            background: #38a169;
+            transform: scale(1.05);
+        }
+
+        .audio-btn.native {
+            background: #5a67d8;
+        }
+
+        .audio-btn.native:hover {
+            background: #4c51bf;
+        }
+
+        .audio-btn-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            display: none;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .question {
+            font-size: 24px;
+            color: #2d3748;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .question-word {
+            font-size: 32px;
+            font-weight: bold;
+            color: #5a67d8;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .option-btn {
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .option-btn:hover {
+            border-color: #5a67d8;
+            background: #edf2ff;
+        }
+
+        .option-btn.correct {
+            background: #48bb78;
+            color: white;
+            border-color: #48bb78;
+            animation: correctPulse 0.6s ease;
+        }
+
+        .option-btn.incorrect {
+            background: #f56565;
+            color: white;
+            border-color: #f56565;
+            animation: incorrectShake 0.5s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+
+        /* Matching Game Styles - 4 Column Layout */
+        .matching-container {
+            display: none;
+        }
+
+        .matching-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .column-group {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .column-header {
+            grid-column: span 2;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .english-header {
+            background: #5a67d8;
+        }
+
+        .vietnamese-header {
+            background: #48bb78;
+        }
+
+        .match-column {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .match-item {
+            padding: 6px 10px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 13px;
+            min-height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+        }
+
+        .match-item:hover {
+            border-color: #5a67d8;
+            transform: scale(1.05);
+        }
+
+        .match-item.selected {
+            background: #bee3f8;
+            border-color: #5a67d8;
+            font-weight: bold;
+        }
+
+        .match-item.matched {
+            background: #c6f6d5;
+            border-color: #48bb78;
+            cursor: default;
+            animation: matchSuccess 0.5s ease;
+        }
+
+        @keyframes matchSuccess {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .match-item.incorrect {
+            animation: shake 0.5s;
+            background: #fed7d7;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .control-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .next-btn {
+            background: #5a67d8;
+            color: white;
+        }
+
+        .next-btn:hover {
+            background: #4c51bf;
+        }
+
+        .reset-btn {
+            background: #ed8936;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #dd6b20;
+        }
+
+        /* Sound control button */
+        .sound-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e2e8f0;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .sound-toggle:hover {
+            background: #cbd5e0;
+            transform: scale(1.1);
+        }
+
+        .sound-toggle.muted {
+            background: #fed7d7;
+        }
+
+        /* Progress indicator */
+        .progress-indicator {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #718096;
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .bounce {
+            animation: bounce 0.5s ease-out;
+        }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #48bb78;
+            color: white;
+            padding: 30px 60px;
+            border-radius: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 20px;
+            }
+
+            .game-title {
+                font-size: 24px;
+            }
+
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .matching-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .column-group {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+
+            .column-header {
+                grid-column: span 1;
+            }
+
+            .match-item {
+                font-size: 11px;
+                padding: 5px 8px;
+                min-height: 28px;
+            }
+
+            .word-display {
+                font-size: 28px;
+            }
+
+            .flashcard {
+                min-height: 350px;
+            }
+
+            .audio-btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            .audio-btn-label {
+                display: none;
+            }
+
+            .sound-toggle {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <button class="sound-toggle" id="soundToggle" onclick="toggleSound()" title="Toggle sound effects">
+            🔊
+        </button>
+        
+        <div class="game-header">
+            <h1 class="game-title">🦁 The Lion and the Rabbit - Vocabulary Adventure 🐰</h1>
+            <div class="score-board">
+                <div class="score-item">
+                    <div class="score-label">Score</div>
+                    <div class="score-value" id="score">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Streak</div>
+                    <div class="score-value" id="streak">0</div>
+                </div>
+                <div class="score-item">
+                    <div class="score-label">Best Score</div>
+                    <div class="score-value" id="bestScore">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-modes">
+            <button class="mode-btn active" onclick="switchMode('flashcard')">📚 Flashcards</button>
+            <button class="mode-btn" onclick="switchMode('quiz')">❓ Quiz</button>
+            <button class="mode-btn" onclick="switchMode('matching')">🔗 Matching</button>
+        </div>
+
+        <div class="game-area">
+            <!-- Flashcard Mode -->
+            <div class="flashcard-container" id="flashcardMode">
+                <div class="progress-indicator" id="flashcardProgress"></div>
+                <div class="flashcard" onclick="flipCard(event)">
+                    <div class="card-face card-front">
+                        <div class="word-display" id="flashcardWord"></div>
+                        <div class="word-pronunciation" id="flashcardPronunciation"></div>
+                        <img class="word-image" id="flashcardImage" style="display: none;">
+                        <button class="audio-btn" onclick="playAudioSynthesis(event)">
+                            🔊 <span class="audio-btn-label">Listen</span>
+                        </button>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="definition" id="flashcardDefinition"></div>
+                        <div class="example" id="flashcardExample"></div>
+                        <button class="audio-btn native" onclick="playAudioFile(event)">
+                            🎧 <span class="audio-btn-label">Listen</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="control-btn next-btn" onclick="previousFlashcard()">← Previous</button>
+                    <button class="control-btn next-btn" onclick="nextFlashcard()">Next →</button>
+                </div>
+            </div>
+
+            <!-- Quiz Mode -->
+            <div class="quiz-container" id="quizMode">
+                <div class="progress-indicator" id="quizProgress"></div>
+                <div class="question">
+                    What is the Vietnamese meaning of:
+                    <span class="question-word" id="quizWord"></span>
+                </div>
+                <div class="options" id="quizOptions"></div>
+                <div class="controls">
+                    <button class="control-btn next-btn" onclick="nextQuestion()" style="display: none;" id="nextQuestionBtn">Next Question →</button>
+                </div>
+            </div>
+
+            <!-- Matching Mode - 4 Column Layout -->
+            <div class="matching-container" id="matchingMode">
+                <div class="progress-indicator">Match English words with their Vietnamese meanings</div>
+                <div class="matching-grid" id="matchingGrid">
+                    <!-- Grid will be populated by JavaScript -->
+                </div>
+                <div class="controls">
+                    <button class="control-btn reset-btn" onclick="resetMatching()">Reset Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="success-message" id="successMessage">Great Job! 🎉</div>
+
+    <script>
+        // Complete vocabulary data from the file
+        let vocabulary = [
+            {
+                word: "afraid",
+                pronunciation: "[əˈfreid] adj.",
+                definition: "When someone is afraid, they feel fear.",
+                example: "The woman was afraid of what she saw.",
+                vietnamese: "sợ hãi",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/21986.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/21986.mp3"
+            },
+            {
+                word: "agree",
+                pronunciation: "[əˈɡriː] v.",
+                definition: "To agree is to say \"yes\" or to think the same way.",
+                example: "A: The food is very good in that restaurant. B: I agree with you.",
+                vietnamese: "đồng ý",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23061.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23061.mp3"
+            },
+            {
+                word: "angry",
+                pronunciation: "[ˈæŋɡrɪ] adj.",
+                definition: "When someone is angry, they may want to speak loudly or fight.",
+                example: "She didn't do her homework, so her father is angry.",
+                vietnamese: "tức giận",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23062.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23062.mp3"
+            },
+            {
+                word: "arrive",
+                pronunciation: "[əˈraɪv] v.",
+                definition: "To arrive is to get to or reach some place.",
+                example: "The bus always arrives at the corner of my street at 4:00.",
+                vietnamese: "đến nơi",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23063.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23063.mp3"
+            },
+            {
+                word: "attack",
+                pronunciation: "[əˈtæk] v.",
+                definition: "To attack is to try to fight or to hurt.",
+                example: "The man with the sword attacked the other man first.",
+                vietnamese: "tấn công",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23064.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23064.mp3"
+            },
+            {
+                word: "bottom",
+                pronunciation: "[ˈbɒtəm] n.",
+                definition: "The bottom is the lowest part.",
+                example: "The bottom of my shoe has a hole in it.",
+                vietnamese: "đáy, phía dưới",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23065.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23065.mp3"
+            },
+            {
+                word: "clever",
+                pronunciation: "[ˈklɛv ər] adj.",
+                definition: "When someone is clever, they can solve a hard puzzle or problem.",
+                example: "The clever boy thought of a good idea.",
+                vietnamese: "thông minh",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23066.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23066.mp3"
+            },
+            {
+                word: "cruel",
+                pronunciation: "[ˈkruːəl] adj.",
+                definition: "When someone is cruel, they do bad things to hurt others.",
+                example: "The cruel man yelled at his sister.",
+                vietnamese: "tàn nhẫn",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23067.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23067.mp3"
+            },
+            {
+                word: "finally",
+                pronunciation: "[ˈfaɪnəlɪ] adv.",
+                definition: "If something happens finally, it happens after a longtime or at the end.",
+                example: "He finally crossed the finish line after five hours of running.",
+                vietnamese: "cuối cùng",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23068.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23068.mp3"
+            },
+            {
+                word: "hide",
+                pronunciation: "[haɪd] v.",
+                definition: "To hide is to try not to let others see you.",
+                example: "The other children will hide while you count to 100.",
+                vietnamese: "ẩn, trốn",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23069.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23069.mp3"
+            },
+            {
+                word: "hunt",
+                pronunciation: "[hʌnt] v.",
+                definition: "To hunt is to look for or search for an animal to kill.",
+                example: "Long ago, people hunted with bows and arrows.",
+                vietnamese: "săn bắn",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23070.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23070.mp3"
+            },
+            {
+                word: "lot",
+                pronunciation: "[lɒt] n.",
+                definition: "A lot means a large number or amount of people, animals, things, etc.",
+                example: "There are a lot of apples in the basket.",
+                vietnamese: "nhiều",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23071.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23071.mp3"
+            },
+            {
+                word: "middle",
+                pronunciation: "[mɪdl] n.",
+                definition: "The middle of something is the center or halfway point.",
+                example: "The Canadian flag has a maple leaf in the middle of it.",
+                vietnamese: "ở giữa",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23072.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23072.mp3"
+            },
+            {
+                word: "moment",
+                pronunciation: "[ˈmoʊmənt] n.",
+                definition: "A moment is a second or a very short time.",
+                example: "I was only a few moments late for the meeting.",
+                vietnamese: "khoảnh khắc",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23073.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23073.mp3"
+            },
+            {
+                word: "pleased",
+                pronunciation: "[pli:zd] adj.",
+                definition: "When someone is pleased, they are happy.",
+                example: "She was pleased with the phone call she received.",
+                vietnamese: "hài lòng",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23074.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23074.mp3"
+            },
+            {
+                word: "promise",
+                pronunciation: "[ˈprɒmɪs] v.",
+                definition: "To promise is to say you will do something for sure.",
+                example: "He promised to return my key by tomorrow.",
+                vietnamese: "hứa",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23075.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23075.mp3"
+            },
+            {
+                word: "reply",
+                pronunciation: "[rɪˈplaɪ] v.",
+                definition: "To reply is to give an answer or say back to someone.",
+                example: "She asked him what time his meeting was. He replied, \"at three.\"",
+                vietnamese: "trả lời",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23076.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23076.mp3"
+            },
+            {
+                word: "safe",
+                pronunciation: "[seɪf] adj.",
+                definition: "When a person is safe, they are not in danger.",
+                example: "Put on your seat belt in the car to be safe.",
+                vietnamese: "an toàn",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23077.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23077.mp3"
+            },
+            {
+                word: "trick",
+                pronunciation: "[trɪk] n.",
+                definition: "A trick is something you do to fool another person.",
+                example: "His card trick really surprised us.",
+                vietnamese: "mẹo, lừa",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23078.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23078.mp3"
+            },
+            {
+                word: "well",
+                pronunciation: "[wɛl] adv.",
+                definition: "You use well to say that something was done in a good way.",
+                example: "The couple can dance quite well.",
+                vietnamese: "tốt, giỏi",
+                image: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-1/wordlist/23079.jpg",
+                audio: "https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/Unit-1/wordlist/23079.mp3"
+            }
+        ];
+
+        // Game state
+        let currentMode = 'flashcard';
+        let currentCardIndex = 0;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let streak = 0;
+        let bestScore = localStorage.getItem('bestScore') || 0;
+        let selectedWord = null;
+        let matchedPairs = 0;
+        let soundEnabled = true;
+
+        // Audio context for sound effects
+        let audioContext;
+        
+        // Initialize audio context
+        function initAudioContext() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        // Duolingo-style sound effects
+        function playCorrectSound() {
+            if (!soundEnabled) return;
+            initAudioContext();
+            
+            const currentTime = audioContext.currentTime;
+            
+            // Create multiple oscillators for a rich, musical sound
+            const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 - Major chord arpeggio
+            
+            notes.forEach((frequency, index) => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                // Use sine wave for a pure, pleasant tone
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(frequency, currentTime + index * 0.05);
+                
+                // Create envelope for each note
+                gainNode.gain.setValueAtTime(0, currentTime + index * 0.05);
+                gainNode.gain.linearRampToValueAtTime(0.2, currentTime + index * 0.05 + 0.02);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + index * 0.05 + 0.4);
+                
+                oscillator.start(currentTime + index * 0.05);
+                oscillator.stop(currentTime + index * 0.05 + 0.4);
+            });
+            
+            // Add a subtle bell-like resonance
+            const bellOscillator = audioContext.createOscillator();
+            const bellGain = audioContext.createGain();
+            
+            bellOscillator.connect(bellGain);
+            bellGain.connect(audioContext.destination);
+            
+            bellOscillator.type = 'triangle';
+            bellOscillator.frequency.setValueAtTime(2093, currentTime + 0.1); // C7
+            
+            bellGain.gain.setValueAtTime(0, currentTime + 0.1);
+            bellGain.gain.linearRampToValueAtTime(0.05, currentTime + 0.12);
+            bellGain.gain.exponentialRampToValueAtTime(0.001, currentTime + 0.8);
+            
+            bellOscillator.start(currentTime + 0.1);
+            bellOscillator.stop(currentTime + 0.8);
+        }
+
+        function playIncorrectSound() {
+            if (!soundEnabled) return;
+            initAudioContext();
+            
+            const currentTime = audioContext.currentTime;
+            
+            // Create two oscillators for a descending "wrong" sound
+            const oscillator1 = audioContext.createOscillator();
+            const oscillator2 = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator1.connect(gainNode);
+            oscillator2.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            // Use triangle wave for a softer sound
+            oscillator1.type = 'triangle';
+            oscillator2.type = 'triangle';
+            
+            // First tone
+            oscillator1.frequency.setValueAtTime(300, currentTime);
+            oscillator1.frequency.linearRampToValueAtTime(250, currentTime + 0.1);
+            
+            // Second tone (creates a subtle dissonance)
+            oscillator2.frequency.setValueAtTime(305, currentTime);
+            oscillator2.frequency.linearRampToValueAtTime(245, currentTime + 0.1);
+            
+            // Envelope
+            gainNode.gain.setValueAtTime(0, currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.15, currentTime + 0.02);
+            gainNode.gain.linearRampToValueAtTime(0.12, currentTime + 0.1);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + 0.2);
+            
+            oscillator1.start(currentTime);
+            oscillator1.stop(currentTime + 0.2);
+            oscillator2.start(currentTime);
+            oscillator2.stop(currentTime + 0.2);
+            
+            // Add a subtle "thud" for emphasis
+            const thudOscillator = audioContext.createOscillator();
+            const thudGain = audioContext.createGain();
+            
+            thudOscillator.connect(thudGain);
+            thudGain.connect(audioContext.destination);
+            
+            thudOscillator.type = 'sine';
+            thudOscillator.frequency.setValueAtTime(80, currentTime);
+            thudOscillator.frequency.exponentialRampToValueAtTime(40, currentTime + 0.1);
+            
+            thudGain.gain.setValueAtTime(0.1, currentTime);
+            thudGain.gain.exponentialRampToValueAtTime(0.01, currentTime + 0.1);
+            
+            thudOscillator.start(currentTime);
+            thudOscillator.stop(currentTime + 0.1);
+        }
+
+        // Toggle sound effects
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const soundToggle = document.getElementById('soundToggle');
+            soundToggle.textContent = soundEnabled ? '🔊' : '🔇';
+            soundToggle.classList.toggle('muted', !soundEnabled);
+            localStorage.setItem('soundEnabled', soundEnabled);
+        }
+
+        // Initialize sound setting
+        soundEnabled = localStorage.getItem('soundEnabled') !== 'false';
+        document.getElementById('soundToggle').textContent = soundEnabled ? '🔊' : '🔇';
+        document.getElementById('soundToggle').classList.toggle('muted', !soundEnabled);
+
+        // Initialize game
+        document.getElementById('bestScore').textContent = bestScore;
+        showMode('flashcard');
+
+        // Switch game modes
+        function switchMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            showMode(mode);
+            
+            if (mode === 'flashcard') {
+                loadFlashcard();
+            } else if (mode === 'quiz') {
+                currentQuestionIndex = 0;
+                loadQuizQuestion();
+            } else if (mode === 'matching') {
+                loadMatchingGame();
+            }
+        }
+
+        function showMode(mode) {
+            document.getElementById('flashcardMode').style.display = 'none';
+            document.getElementById('quizMode').style.display = 'none';
+            document.getElementById('matchingMode').style.display = 'none';
+            
+            if (mode === 'flashcard') {
+                document.getElementById('flashcardMode').style.display = 'block';
+                loadFlashcard();
+            } else if (mode === 'quiz') {
+                document.getElementById('quizMode').style.display = 'block';
+            } else if (mode === 'matching') {
+                document.getElementById('matchingMode').style.display = 'block';
+            }
+        }
+
+        // Update progress indicators
+        function updateProgress() {
+            if (currentMode === 'flashcard') {
+                document.getElementById('flashcardProgress').textContent = 
+                    `Word ${currentCardIndex + 1} of ${vocabulary.length}`;
+            } else if (currentMode === 'quiz') {
+                document.getElementById('quizProgress').textContent = 
+                    `Question ${currentQuestionIndex + 1} of ${vocabulary.length}`;
+            }
+        }
+
+        // Flashcard functions
+        function loadFlashcard() {
+            const card = vocabulary[currentCardIndex];
+            document.getElementById('flashcardWord').textContent = card.word;
+            document.getElementById('flashcardPronunciation').textContent = card.pronunciation;
+            document.getElementById('flashcardDefinition').textContent = card.definition;
+            document.getElementById('flashcardExample').innerHTML = card.example.replace(card.word, `<strong>${card.word}</strong>`);
+            
+            if (card.vietnamese) {
+                document.getElementById('flashcardDefinition').innerHTML = 
+                    `${card.definition}<br><br><em>Vietnamese: ${card.vietnamese}</em>`;
+            }
+            
+            const imageElement = document.getElementById('flashcardImage');
+            if (card.image) {
+                imageElement.src = card.image;
+                imageElement.style.display = 'block';
+            } else {
+                imageElement.style.display = 'none';
+            }
+            
+            // Reset flip
+            document.querySelector('.flashcard').classList.remove('flipped');
+            updateProgress();
+        }
+
+        function flipCard(event) {
+            // Don't flip if clicking on audio buttons
+            if (event.target.classList.contains('audio-btn') || 
+                event.target.parentElement.classList.contains('audio-btn')) {
+                return;
+            }
+            document.querySelector('.flashcard').classList.toggle('flipped');
+        }
+
+        function nextFlashcard() {
+            currentCardIndex = (currentCardIndex + 1) % vocabulary.length;
+            loadFlashcard();
+            document.querySelector('.flashcard').classList.add('fade-in');
+        }
+
+        function previousFlashcard() {
+            currentCardIndex = (currentCardIndex - 1 + vocabulary.length) % vocabulary.length;
+            loadFlashcard();
+            document.querySelector('.flashcard').classList.add('fade-in');
+        }
+
+        // Audio functions - Separate for synthesis and file
+        function playAudioSynthesis(event) {
+            event.stopPropagation();
+            const word = vocabulary[currentCardIndex];
+            
+            // Always use speech synthesis for front side
+            const utterance = new SpeechSynthesisUtterance(word.word);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.8;
+            utterance.pitch = 1.0;
+            speechSynthesis.speak(utterance);
+        }
+
+        function playAudioFile(event) {
+            event.stopPropagation();
+            const word = vocabulary[currentCardIndex];
+            
+            if (word.audio) {
+                // Try to play the audio file
+                const audio = new Audio(word.audio);
+                audio.play().catch(error => {
+                    // If audio file fails, fallback to speech synthesis
+                    console.log('Audio file failed, using speech synthesis as fallback');
+                    const utterance = new SpeechSynthesisUtterance(word.word);
+                    utterance.lang = 'en-US';
+                    utterance.rate = 0.8;
+                    utterance.pitch = 1.0;
+                    speechSynthesis.speak(utterance);
+                });
+            } else {
+                // No audio file available, use speech synthesis
+                const utterance = new SpeechSynthesisUtterance(word.word);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                utterance.pitch = 1.0;
+                speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Quiz functions - Updated to use Vietnamese meanings
+        function loadQuizQuestion() {
+            const question = vocabulary[currentQuestionIndex];
+            document.getElementById('quizWord').textContent = question.word;
+            
+            // Generate options with Vietnamese meanings
+            const options = generateQuizOptions(currentQuestionIndex);
+            const optionsContainer = document.getElementById('quizOptions');
+            optionsContainer.innerHTML = '';
+            
+            options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-btn fade-in';
+                button.style.animationDelay = `${index * 0.1}s`;
+                button.textContent = option.vietnamese;
+                button.onclick = () => checkAnswer(option.correct, button);
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('nextQuestionBtn').style.display = 'none';
+            updateProgress();
+        }
+
+        function generateQuizOptions(correctIndex) {
+            const options = [];
+            const correctAnswer = vocabulary[correctIndex];
+            options.push({ vietnamese: correctAnswer.vietnamese, correct: true });
+            
+            // Add 3 wrong options
+            const indices = [];
+            while (indices.length < 3) {
+                const randomIndex = Math.floor(Math.random() * vocabulary.length);
+                if (randomIndex !== correctIndex && !indices.includes(randomIndex)) {
+                    indices.push(randomIndex);
+                    options.push({ vietnamese: vocabulary[randomIndex].vietnamese, correct: false });
+                }
+            }
+            
+            // Shuffle options
+            return options.sort(() => Math.random() - 0.5);
+        }
+
+        function checkAnswer(isCorrect, button) {
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => btn.style.pointerEvents = 'none');
+            
+            if (isCorrect) {
+                button.classList.add('correct', 'bounce');
+                updateScore(10);
+                streak++;
+                showSuccess();
+                playCorrectSound(); // Play correct sound
+            } else {
+                button.classList.add('incorrect');
+                streak = 0;
+                playIncorrectSound(); // Play incorrect sound
+                // Show correct answer
+                buttons.forEach(btn => {
+                    if (btn.textContent === vocabulary[currentQuestionIndex].vietnamese) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+            
+            updateScoreDisplay();
+            document.getElementById('nextQuestionBtn').style.display = 'block';
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex = (currentQuestionIndex + 1) % vocabulary.length;
+            loadQuizQuestion();
+        }
+
+        // Matching game functions - 4 column layout
+        function loadMatchingGame() {
+            matchedPairs = 0;
+            selectedWord = null;
+            
+            const matchingGrid = document.getElementById('matchingGrid');
+            matchingGrid.innerHTML = '';
+            
+            // Shuffle words for randomization
+            const shuffledWords = [...vocabulary].sort(() => Math.random() - 0.5);
+            const shuffledVietnamese = [...vocabulary].sort(() => Math.random() - 0.5);
+            
+            // Create English group
+            const englishGroup = document.createElement('div');
+            englishGroup.className = 'column-group';
+            
+            const englishHeader = document.createElement('div');
+            englishHeader.className = 'column-header english-header';
+            englishHeader.textContent = 'English Words';
+            englishGroup.appendChild(englishHeader);
+            
+            // Create two columns for English words
+            const englishCol1 = document.createElement('div');
+            englishCol1.className = 'match-column';
+            const englishCol2 = document.createElement('div');
+            englishCol2.className = 'match-column';
+            
+            // Split English words into two columns
+            shuffledWords.forEach((item, index) => {
+                const wordDiv = document.createElement('div');
+                wordDiv.className = 'match-item fade-in';
+                wordDiv.style.animationDelay = `${index * 0.03}s`;
+                wordDiv.textContent = item.word;
+                wordDiv.dataset.word = item.word;
+                wordDiv.dataset.type = 'english';
+                wordDiv.onclick = () => selectWord(wordDiv);
+                
+                if (index < 10) {
+                    englishCol1.appendChild(wordDiv);
+                } else {
+                    englishCol2.appendChild(wordDiv);
+                }
+            });
+            
+            englishGroup.appendChild(englishCol1);
+            englishGroup.appendChild(englishCol2);
+            
+            // Create Vietnamese group
+            const vietnameseGroup = document.createElement('div');
+            vietnameseGroup.className = 'column-group';
+            
+            const vietnameseHeader = document.createElement('div');
+            vietnameseHeader.className = 'column-header vietnamese-header';
+            vietnameseHeader.textContent = 'Vietnamese Meanings';
+            vietnameseGroup.appendChild(vietnameseHeader);
+            
+            // Create two columns for Vietnamese words
+            const vietnameseCol1 = document.createElement('div');
+            vietnameseCol1.className = 'match-column';
+            const vietnameseCol2 = document.createElement('div');
+            vietnameseCol2.className = 'match-column';
+            
+            // Split Vietnamese words into two columns
+            shuffledVietnamese.forEach((item, index) => {
+                const defDiv = document.createElement('div');
+                defDiv.className = 'match-item fade-in';
+                defDiv.style.animationDelay = `${index * 0.03}s`;
+                defDiv.textContent = item.vietnamese;
+                defDiv.dataset.word = item.word;
+                defDiv.dataset.type = 'vietnamese';
+                defDiv.onclick = () => selectDefinition(defDiv);
+                
+                if (index < 10) {
+                    vietnameseCol1.appendChild(defDiv);
+                } else {
+                    vietnameseCol2.appendChild(defDiv);
+                }
+            });
+            
+            vietnameseGroup.appendChild(vietnameseCol1);
+            vietnameseGroup.appendChild(vietnameseCol2);
+            
+            // Add groups to grid
+            matchingGrid.appendChild(englishGroup);
+            matchingGrid.appendChild(vietnameseGroup);
+        }
+
+        function selectWord(element) {
+            if (element.classList.contains('matched')) return;
+            
+            // Clear all English selections
+            document.querySelectorAll('.match-item[data-type="english"]').forEach(item => {
+                if (!item.classList.contains('matched')) {
+                    item.classList.remove('selected');
+                }
+            });
+            
+            element.classList.add('selected');
+            selectedWord = element.dataset.word;
+        }
+
+        function selectDefinition(element) {
+            if (!selectedWord || element.classList.contains('matched')) return;
+            
+            if (element.dataset.word === selectedWord) {
+                // Correct match
+                element.classList.add('matched');
+                document.querySelector(`.match-item[data-type="english"][data-word="${selectedWord}"]`).classList.add('matched');
+                updateScore(15);
+                matchedPairs++;
+                playCorrectSound(); // Play correct sound
+                
+                if (matchedPairs === vocabulary.length) {
+                    showSuccess("All Matched! Perfect! 🎉");
+                }
+            } else {
+                // Wrong match
+                element.classList.add('incorrect');
+                playIncorrectSound(); // Play incorrect sound
+                setTimeout(() => element.classList.remove('incorrect'), 500);
+            }
+            
+            selectedWord = null;
+            updateScoreDisplay();
+        }
+
+        function resetMatching() {
+            loadMatchingGame();
+        }
+
+        // Score functions
+        function updateScore(points) {
+            score += points;
+            updateScoreDisplay();
+            
+            if (score > bestScore) {
+                bestScore = score;
+                localStorage.setItem('bestScore', bestScore);
+                document.getElementById('bestScore').textContent = bestScore;
+            }
+        }
+
+        function updateScoreDisplay() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('streak').textContent = streak;
+        }
+
+        function showSuccess(message = "Great Job! 🎉") {
+            const successMsg = document.getElementById('successMessage');
+            successMsg.textContent = message;
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 2000);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (currentMode === 'flashcard') {
+                if (e.key === ' ') {
+                    e.preventDefault();
+                    flipCard({ target: document.querySelector('.flashcard') });
+                } else if (e.key === 'ArrowRight') {
+                    nextFlashcard();
+                } else if (e.key === 'ArrowLeft') {
+                    previousFlashcard();
+                }
+            }
+        });
+
+        // Initialize audio context on first user interaction
+        document.addEventListener('click', () => {
+            initAudioContext();
+        }, { once: true });
+    </script>
+</body>
+</html>
